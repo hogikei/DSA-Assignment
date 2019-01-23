@@ -98,6 +98,13 @@ AVL::Node *AVL::balance(Node *temp)
 	return temp;
 }
 
+
+AVL::Node* AVL::insert(ItemType data)
+{
+	insert(root, data);
+	return root;
+}
+
 // Insert Element into Tree //
 AVL::Node* AVL::insert(Node * root, ItemType data)
 {
@@ -176,5 +183,5 @@ void AVL::postOrder(Node *tree)
 // Check if Node is empty //
 bool AVL::isEmpty()
 {
-	return root == NULL;
+	return (root == NULL);
 }

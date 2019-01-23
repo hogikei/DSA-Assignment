@@ -26,7 +26,8 @@ public:
 	Node *leftRightRotation(Node *);
 	Node *rightLeftRotation(Node *);
 	Node* balance(Node *);
-	Node* insert(Node *, ItemType);
+	Node* insert(ItemType string);
+	Node* insert(Node *, ItemType string);
 	void display(Node *, int);
 	void inOrder(Node *);
 	void preOrder(Node *);
