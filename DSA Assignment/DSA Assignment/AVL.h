@@ -18,6 +18,7 @@ private:
 	};
 	Node *root;
 
+
 public:
 	int height(Node *);
 	int difference(Node *);
