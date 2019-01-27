@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Trie.h"
-
-
+#include <iostream>
+#include <string>
 
 // Iterative function to insert a key in the Trie
 void Trie::insert(std::string key)
@@ -74,7 +74,6 @@ const void Trie::prefix(Trie* trie, std::string prefix)
 		}
 	}
 }
-
 
 bool Trie::isEmpty() {
 	return (size == 0);

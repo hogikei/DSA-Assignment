@@ -34,4 +34,5 @@ public:
 	bool search(std::string);
 	bool end(Trie const*);
 	const void prefix(Trie*, std::string prefix);
+	void traverse(std::string prefix, Trie* trie)
 };
