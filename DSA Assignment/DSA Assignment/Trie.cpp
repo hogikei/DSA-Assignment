@@ -64,7 +64,7 @@ bool Trie::end(Trie const* curr)
 
 
 
-
+//check if trie is empty based on its size which increments everytime the insertmethod is called.
 bool Trie::isEmpty() 
 {
 	return (size == 0);
@@ -72,19 +72,19 @@ bool Trie::isEmpty()
 
 
 //DisplayPrefix
-bool Trie::DisplayPrefix(string input, int length)
+bool Trie::Prefix(string input, int length)
 {
-	//Search for a prefix from trie
+	
 	bool Validate = false;
 	//Create new node
 	Trie* trie = new Trie;
 
-	//Check if the node points to null
+	//validating if node points to null
 	if (this == nullptr)
 		return false;
 	else
 	{
-		//Create current node
+		//create a node based on the current node.
 		Trie* current = this;
 		for (int i = 0; i < length; i++) {
 			if (current->character[input[i]] == nullptr) {
@@ -105,11 +105,13 @@ bool Trie::DisplayPrefix(string input, int length)
 
 //Traversal
 void Trie::Traversal(string input, Trie* trie) {
-	//Online code to traverse 
+	//universal code to traverse trie. 
 	for (int i = 0; i < CHAR_SIZE; i++) {
-		if (trie->character[i] != nullptr)  // if there is a value
+		// iif the trie has a character after the current character
+		if (trie->character[i] != nullptr)  
 		{
-			Trie* tempTrie = trie->character[i]; //pointer points to letter
+			//pointing pointer to the next character
+			Trie* tempTrie = trie->character[i]; 
 			char character = char(i);
 			string tempString = input + character;
 			if (!tempTrie->isLeaf) {

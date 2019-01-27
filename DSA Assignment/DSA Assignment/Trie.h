@@ -32,7 +32,7 @@ public:
 	bool isEmpty();
 	bool search(std::string);
 	bool end(Trie const*);
-	bool DisplayPrefix(std::string letters, int length);
+	bool Prefix(std::string letters, int length);
 	void Traversal(std::string prefix, Trie* trie);
 	
 };
