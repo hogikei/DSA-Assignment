@@ -57,6 +57,24 @@ bool Trie::end(Trie const* curr)
 	return false;
 }
 
+const void Trie::prefix(Trie* trie, std::string prefix)
+{
+	bool check = true;
+	Trie* current = this;
+	for (int i = 0; i < prefix.length(); i++)
+	{
+		if (current->character[prefix[i]] == nullptr)
+		{
+			check = false;
+			break;
+		}
+		else
+		{
+			current = current->character[prefix[i]]; // Traverse pointer to latest character
+		}
+	}
+}
+
 
 bool Trie::isEmpty() {
 	return (size == 0);

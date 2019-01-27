@@ -33,5 +33,5 @@ public:
 	bool isEmpty();
 	bool search(std::string);
 	bool end(Trie const*);
-	
+	const void prefix(Trie*, std::string prefix);
 };
