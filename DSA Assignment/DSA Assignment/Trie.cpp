@@ -1,7 +1,12 @@
 #include "pch.h"
 #include "Trie.h"
+#include <iostream>
+#include "string"
+// Converts key current character into index 
+// use only 'a' through 'z' and lower case 
+#define CHAR_TO_INDEX(c) ((int)c - (int)'a') 
 
-
+using namespace std;
 
 // Iterative function to insert a key in the Trie
 void Trie::insert(std::string key)
@@ -57,25 +62,59 @@ bool Trie::end(Trie const* curr)
 	return false;
 }
 
-const void Trie::prefix(Trie* trie, std::string prefix)
+
+
+
+bool Trie::isEmpty() 
 {
-	bool check = true;
-	Trie* current = this;
-	for (int i = 0; i < prefix.length(); i++)
+	return (size == 0);
+}
+
+
+bool Trie::DisplayPrefix(string input, int length)
+{
+	//search for a prefix from trie
+	bool Validate = false;
+	Trie* trie = new Trie;
+
+	if (this == nullptr)
+		return false;
+	else
 	{
-		if (current->character[prefix[i]] == nullptr)
-		{
-			check = false;
-			break;
+		Trie* current = this;
+		for (int i = 0; i < length; i++) {
+			if (current->character[input[i]] == nullptr) {
+				Validate = false;
+				break;
+			}
+			else {
+				current = current->character[input[i]];
+				Validate = true;
+			}
 		}
-		else
+		if (Validate)
 		{
-			current = current->character[prefix[i]]; // Traverse pointer to latest character
+			Traversal(input, current);
 		}
 	}
 }
 
 
-bool Trie::isEmpty() {
-	return (size == 0);
+void Trie::Traversal(string input, Trie* trie) {
+	//online code to traverse 
+	for (int i = 0; i < CHAR_SIZE; i++) {
+		if (trie->character[i] != nullptr)  // if there is a value
+		{
+			Trie* tempTrie = trie->character[i]; //pointer points to letter
+			char character = char(i);
+			string tempString = input + character;
+			if (!tempTrie->isLeaf) {
+				Traversal(tempString, tempTrie);
+			}
+			else {
+				cout << tempString << endl;
+			}
+
+		}
+	}
 }

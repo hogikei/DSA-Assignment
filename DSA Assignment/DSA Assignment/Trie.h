@@ -11,7 +11,6 @@ class Trie
 public:
 
 	bool isLeaf;
-
 	Trie* character[CHAR_SIZE];
 	int size;
 
@@ -33,5 +32,7 @@ public:
 	bool isEmpty();
 	bool search(std::string);
 	bool end(Trie const*);
-	const void prefix(Trie*, std::string prefix);
+	bool DisplayPrefix(std::string letters, int length);
+	void Traversal(std::string prefix, Trie* trie);
+	
 };
